@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #08080f;
+  color: #ccc;
+  font-family: monospace;
+  overflow: hidden;
+  user-select: none;
+}
+
+canvas {
+  display: block;
+  cursor: grab;
+}
+
+canvas.dragging {
+  cursor: grabbing;
+}
+
+#info {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid #223;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.8;
+  min-width: 200px;
+  pointer-events: none;
+}
+
+#info .label {
+  color: #556;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#info .val {
+  color: #dde;
+}
+
+#info .val.ok {
+  color: #00ff88;
+}
+
+#info .val.warn {
+  color: #ff8c00;
+}
+
+#info .val.err {
+  color: #ff4455;
+}
+
+#hint {
+  position: fixed;
+  bottom: 10px;
+  right: 12px;
+  font-size: 16px;
+  color: #334;
+  pointer-events: none;
+}
+
+#tooltip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #334;
+  padding: 4px 8px;
+  font-size: 16px;
+  color: #aab;
+  pointer-events: none;
+  display: none;
+}

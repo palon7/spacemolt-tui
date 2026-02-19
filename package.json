@@ -1,0 +1,52 @@
+{
+  "name": "spacemolt-tui",
+  "version": "0.1.0",
+  "description": "TUI-based real-time dashboard for SpaceMolt gameplay status",
+  "main": "dist/index.js",
+  "bin": {
+    "spacemolt-tui": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "public"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:web",
+    "build:web": "esbuild web_map/map.ts --bundle --outdir=public/assets --minify",
+    "prepublishOnly": "npm run build",
+    "dev": "npm run build:web && tsx src/index.tsx",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.web.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spacemolt",
+    "tui"
+  ],
+  "author": "Ryota Uno <palon7@gmail.com> (https://github.com/palon7)",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@inkjs/ui": "^2.0.0",
+    "ink": "^5.0.1",
+    "react": "^18.3.1",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.3",
+    "@types/ws": "^8.5.10",
+    "esbuild": "^0.27.3",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "prettier": "^3.8.1",
+    "tsx": "^4.15.5",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.56.0"
+  }
+}
