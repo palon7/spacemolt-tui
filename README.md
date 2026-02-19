@@ -1,5 +1,9 @@
 # spacemolt-tui
 
+<p align="center">
+    <img alt="Application Main Image" width="800" src="./docs/image/main.png" />
+</p>
+
 A read-only, TUI-based real-time dashboard for monitoring [SpaceMolt](https://game.spacemolt.com/) gameplay status from your terminal.
 
 ## Features
@@ -7,16 +11,19 @@ A read-only, TUI-based real-time dashboard for monitoring [SpaceMolt](https://ga
 - Real-time status panels via WebSocket
   - Player / ship / travel status
   - Event (Chat, Combat, Navigation, etc) stream with color coding
-- Event filtering with keybindings
-- Event log scrolling (Arrow keys, `e` to jump to latest)
-- NDJSON event logging to disk (opt-in via `--log` flag or config)
-- Browser-based map viewer (`--map` flag)
-- Event Receiver API for external tool integration (`--listen-event` flag)
+- Event filtering
+- Event logging to disk
+- Event Receiver API for external tool integration
+- Browser-based map viewer!
+
+<p align="center">
+    <img alt="Application Main Image" width="800" src="./docs/image/map.png" />
+</p>
 
 ## Setup
 
 ```bash
-npm install
+npm install -g spacemolt-tui
 ```
 
 Create a config file at `~/.spacemolt-tui/config.json`:
@@ -26,6 +33,27 @@ Create a config file at `~/.spacemolt-tui/config.json`:
   "username": "your_username",
   "password": "your_password"
 }
+```
+
+or provide credentials via CLI args:
+
+```bash
+spacemolt-tui --username=your_username --password=your_password
+```
+
+## Usage
+
+```bash
+spacemolt-tui
+
+# With browser map viewer
+spacemolt-tui --map
+
+# With event logging
+spacemolt-tui --log
+
+# With Event Receiver API
+spacemolt-tui --listen-event
 ```
 
 ### Config File
@@ -56,23 +84,22 @@ Create a config file at `~/.spacemolt-tui/config.json`:
 | `--log-dir=`     | Event log output directory |
 | `--refresh-data` | Re-download game data      |
 
-## Usage
+### Keybindings
 
-```bash
-spacemolt-tui
-
-# With browser map viewer
-spacemolt-tui --map
-
-# With event logging
-spacemolt-tui --log
-
-# With Event Receiver API
-spacemolt-tui --listen-event
-
-# Specify username/password via CLI
-spacemolt-tui --username=your_username --password=your_password
-```
+| Key         | Description                 |
+| ----------- | --------------------------- |
+| `q` / `Esc` | Quit                        |
+| `?`         | Show / hide help            |
+| `p`         | Pause / resume event stream |
+| `d`         | Show Ship detail view       |
+| `↑` / `↓`   | Scroll event list           |
+| `e`         | Jump to latest event        |
+| `c`         | Toggle Chat filter          |
+| `b`         | Toggle Combat filter        |
+| `s`         | Toggle System filter        |
+| `m`         | Toggle Me filter            |
+| `o`         | Toggle Other filter         |
+| `x`         | Toggle Misc filter          |
 
 ## Development
 
