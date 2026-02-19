@@ -4,7 +4,7 @@
     <img alt="Application Main Image" width="800" src="./docs/image/main.png" />
 </p>
 
-A read-only, TUI-based real-time dashboard for monitoring [SpaceMolt](https://game.spacemolt.com/) gameplay status from your terminal.
+A read-only, TUI-based real-time dashboard for monitoring [SpaceMolt](https://www.spacemolt.com/) gameplay status from your terminal.
 
 ## Features
 
